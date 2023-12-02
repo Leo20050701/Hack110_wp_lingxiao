@@ -21,3 +21,8 @@ def get_response_from_AI(system_content: str, user_content: str) -> str:
     return response.choices[0].message.content
 
 print(get_response_from_AI(system_content_select_character, ask_for_character("Star Wars")))
+
+def get_clue() -> str:
+    return 
+
+print(get_response_from_AI(system_content_select_character, ask_for_character("Star Wars")))
