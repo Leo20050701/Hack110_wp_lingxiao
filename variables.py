@@ -1,7 +1,7 @@
 """Stores all big variables."""
 import os
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = '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'
 
 movie_list: list[str] = ["The Shawshank Redemption", "The Godfather", "Titanic", "Star Wars: Episode IV - A New Hope", "Jurassic Park", "Avatar", 
              "Harry Potter", "Forrest Gump", "Inception", "The Matrix", "Pulp Fiction", 
