@@ -34,12 +34,12 @@ def get_first_bing_image_url(search_query):
         first_image = soup.find('a', class_='iusc')
 
         if not first_image:
-            return "No image found."
+            return 0
 
         m = first_image.get('m')
         if not m:
-            return "Image URL not found."
-
+            return 0
+        
         start = m.find('murl')+7
         end = m.find('"', start)
         image_url = m[start:end]
@@ -47,7 +47,7 @@ def get_first_bing_image_url(search_query):
         return image_url
     
     except Exception as e:
-        return f"An error occurred: {e}"
+        return 0
     
 
 def compare_strings(str1, str2) -> float:

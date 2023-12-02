@@ -31,7 +31,28 @@ movie_list: list[str] = ["The Shawshank Redemption",
                         "Avengers",
                         "Frozen",
                         "The Wolf of Wall Street",
-                        "Mad Max: Fury Road"]
+                        "Mad Max: Fury Road",
+                        "The Green Mile",
+                        "The Grand Budapest Hotel",
+                        "The Pianist",
+                        "The Wizard of Oz",
+                        "Snow White and the Seven Dwarfs",
+                        "Terminator",
+                        "Pirates of the Caribbean",
+                        "Transformers",
+                        "Black Panther",
+                        "Iron Man",
+                        "Spider-Man: No Way Home",
+                        "Mudres Calling",
+                        "Train to Busan",
+                        "The Road to Mandalay",
+                        "Mulan 2020",
+                        "Inside Out",
+                        "Finding Nemo",
+                        "Moana",
+                        "Zootopia",
+                        "Big Hero 6",
+                        "Monsters, Inc."]
 
 system_content_select_character: str = "You are a movie expert and you need to randomly select a character from a given movie."
 
@@ -39,7 +60,7 @@ system_content_clue: str = "I am playing a game like 20Q but there is only 3 clu
 
 
 def ask_for_character(movie: str) -> str:
-    ask_for_character: str = f"Please randomly select A character in the movie {movie}. Please return to me ONLY the name without any other content and information."
+    ask_for_character: str = f"Please RANDOMLY select A character in the movie {movie}. You can choose from ALL characters, allocate EQUAL chance to each character to be chosen. Please return to me ONLY the name without any other content and information."
     return ask_for_character
 
 

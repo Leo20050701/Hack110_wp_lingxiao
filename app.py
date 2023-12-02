@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 from variables import *
 from W_o_W import *
+import webbrowser
+from threading import Timer
 
 app = Flask(__name__)
 
@@ -25,9 +27,8 @@ def submit_guess():
     user_guess = request.form['guess']
     round = int(request.form['round'])
 
-    # Compare user guess with the character name
     similarity = compare_strings(user_guess, character)
-    win = similarity >= 40.0
+    win = similarity >= 50.0
 
     if win:
         message = f"You Win!! The correct answer is {character}"
@@ -50,11 +51,19 @@ def submit_guess():
         clue = get_response_from_AI(system_content_clue, third_clue(character, movie))
     elif round == 4:
         image_url = get_first_bing_image_url(f"{character} in {movie}")
+        print(image_url)
+        if image_url == 0:
+            image_url = get_first_bing_image_url(f"{character} in {movie}")
+            print(image_url)
         clue = f"<img src='{image_url}' alt='Character Image Clue' class='round-four-image'>"
 
 
     return render_template('game.html', movie=movie, character=character, round=round, clue=clue, message=message, game_over=game_over)
 
 
+def open_browser():
+      webbrowser.open_new('http://127.0.0.1:5000/')
+
 if __name__ == '__main__':
+    Timer(1, open_browser).start();
     app.run(debug=True)

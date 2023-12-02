@@ -2,6 +2,60 @@
 <html>
 <head>
     <title>Movie List</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Creates a grid with flexible columns */
+            grid-gap: 10px; /* Space between grid items */
+            width: 90%; /* Width of the grid */
+            max-width: 1200px; /* Maximum width of the grid */
+            margin: 0 auto; /* Centering the grid */
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            font-weight: bold;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            text-align: center; /* Center text in the box */
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <h1>Movie List</h1>

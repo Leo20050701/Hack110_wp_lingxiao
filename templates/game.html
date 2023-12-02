@@ -3,7 +3,6 @@
 <head>
     <title>Guess the Character</title>
     <style>
-        /* Add custom CSS styles */
         .submit-form {
             position: fixed; 
             bottom: 10%; /* Raise the form a bit */
@@ -11,41 +10,65 @@
             transform: translateX(-50%);
             text-align: center;
         }
+
         
         .submit-form input[type=submit] {
-            padding: 10px 20px; /* Larger button */
-            background-color: green; /* Green background */
-            color: white; /* White text */
-            border: none; /* No border */
-            border-radius: 5px; /* Rounded corners */
-            cursor: pointer; /* Pointer cursor on hover */
-            font-size: 1em; /* Larger text */
+            padding: 10px 20px; 
+            background-color: green;
+            color: white; 
+            border: none; 
+            border-radius: 5px;
+            cursor: pointer; 
+            font-size: 1em; 
         }
         
-        /* Style to ensure larger text input */
+        .play-again {
+            position: fixed; 
+            bottom: 5%; /* Position at the bottom */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background-color: green; /* Green background */
+            color: white; /* White text */
+            padding: 15px 30px; /* Padding to form a square shape depending on the text length */
+            border: none; /* No border */
+            border-radius: 0; /* Square corners */
+            text-decoration: none; /* Remove underline from link */
+            display: inline-block; /* Needed to enable width and padding */
+            font-size: 1em; /* Text size */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+
         .submit-form input[type=text] {
             padding: 5px;
             font-size: 1em;
         }
 
-        /* Responsive input width */
         @media (min-width: 600px) {
             .submit-form input[type=text] {
                 width: 50%;
             }
         }
 
-        .round-four-image-container {
-            text-align: center; /* Centers the content horizontally */
-            height: 300px; /* Set a fixed height or use a percentage */
-            line-height: 300px; /* Set this equal to the height for vertical centering */
-        }
-
         .round-four-image {
-        max-width: 500px; /* Set a fixed max-width or use a percentage */
-        max-height: 500px; /* Set a fixed max-height */
-        display: block; /* To center the image */
-        margin: 10px auto; /* Center the image horizontally and add some space above and below */
+        max-width: 500px; 
+        max-height: 500px; 
+        display: block; 
+        margin: 10px auto; 
+    }
+    
+        .clue-text {
+        text-align: center; /* Center the text horizontally */
+        font-size: 24px; /* Larger font size */
+        font-weight: bold; /* Bold font weight */
+        margin-top: 20%; /* Position towards the middle of the screen */
+    }
+        .message {
+        text-align: center; /* Center the text horizontally */
+        font-size: 24px; /* Larger font size */
+        font-weight: bold; /* Bold font weight */
+        margin-top: 20%; /* Position towards the middle of the screen */
+
     }
 
     </style>
@@ -54,19 +77,17 @@
     <h1>Game: Guess the Character in {{ movie }}</h1>
     
     {% if not game_over %}
-        <!-- Clue and game information at the top -->
-        <div class="clue-section">
-            {% if round < 4 %}
-                <p>Clue for Round {{ round }}:</p>
-                <!-- For rounds 1 to 3, display the clue text -->
-                <p>{{ clue }}</p>
-            {% elif round == 4 %}
-                <!-- Scale down and display the image for round 4 -->
-                <div class="round-four-image">
-                    {{ clue|safe }}
-                </div>
-            {% endif %}
-        </div>
+    <!-- Clue and game information at the top -->
+    <div class="clue-section">
+        {% if round < 4 %}
+            <p class="clue-text">Clue for Round {{ round }}: {{ clue }}</p>
+        {% elif round == 4 %}
+            <!-- Scale down and display the image for round 4 -->
+            <div class="round-four-image">
+                {{ clue|safe }}
+            </div>
+        {% endif %}
+    </div>
         
         
         <!-- Submission form at the bottom -->
@@ -92,7 +113,7 @@
 
         <!-- Link to play again if the game is over -->
         <div class="play-again">
-            <a href="/">Play Again</a>
+            <a href="/" style="text-decoration: none; color: white;">Play Again</a>
         </div>
     {% endif %}
 
