@@ -118,5 +118,3 @@ def main() -> None:
         play_again = input("Do you want to play again? (Y/N)")
         if not (play_again == "Y" or play_again == "y" or play_again == "yes" or play_again == "YES" or play_again == "Yes"):
             status = False
-
-main()

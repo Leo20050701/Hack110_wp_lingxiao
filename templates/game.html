@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Character</title>
+    <style>
+        /* Add custom CSS styles */
+        .submit-form {
+            position: fixed; 
+            bottom: 10%; /* Raise the form a bit */
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+        
+        .submit-form input[type=submit] {
+            padding: 10px 20px; /* Larger button */
+            background-color: green; /* Green background */
+            color: white; /* White text */
+            border: none; /* No border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 1em; /* Larger text */
+        }
+        
+        /* Style to ensure larger text input */
+        .submit-form input[type=text] {
+            padding: 5px;
+            font-size: 1em;
+        }
+
+        /* Responsive input width */
+        @media (min-width: 600px) {
+            .submit-form input[type=text] {
+                width: 50%;
+            }
+        }
+
+        .round-four-image-container {
+            text-align: center; /* Centers the content horizontally */
+            height: 300px; /* Set a fixed height or use a percentage */
+            line-height: 300px; /* Set this equal to the height for vertical centering */
+        }
+
+        .round-four-image {
+        max-width: 500px; /* Set a fixed max-width or use a percentage */
+        max-height: 500px; /* Set a fixed max-height */
+        display: block; /* To center the image */
+        margin: 10px auto; /* Center the image horizontally and add some space above and below */
+    }
+
+    </style>
+</head>
+<body>
+    <h1>Game: Guess the Character in {{ movie }}</h1>
+    
+    {% if not game_over %}
+        <!-- Clue and game information at the top -->
+        <div class="clue-section">
+            {% if round < 4 %}
+                <p>Clue for Round {{ round }}:</p>
+                <!-- For rounds 1 to 3, display the clue text -->
+                <p>{{ clue }}</p>
+            {% elif round == 4 %}
+                <!-- Scale down and display the image for round 4 -->
+                <div class="round-four-image">
+                    {{ clue|safe }}
+                </div>
+            {% endif %}
+        </div>
+        
+        
+        <!-- Submission form at the bottom -->
+        <form class="submit-form" action="/submit_guess" method="post">
+            <input type="hidden" name="movie" value="{{ movie }}">
+            <input type="hidden" name="character" value="{{ character }}">
+            <input type="hidden" name="round" value="{{ round }}">
+
+            <div>
+                <label for="guess">Your Guess:</label>
+                <input type="text" id="guess" name="guess">
+            </div>
+
+            <div>
+                <input type="submit" value="Submit Guess">
+            </div>
+        </form>
+    {% else %}
+        <!-- Display the win or loss message -->
+        <div class="message">
+            <p>{{ message }}</p>
+        </div>
+
+        <!-- Link to play again if the game is over -->
+        <div class="play-again">
+            <a href="/">Play Again</a>
+        </div>
+    {% endif %}
+
+</body>
+</html>

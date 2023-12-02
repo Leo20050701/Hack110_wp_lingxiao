@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie List</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul>
+        {% for movie in movie_list %}
+            <li><a href="/select_movie/{{ movie }}">{{ movie }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

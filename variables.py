@@ -1,12 +1,37 @@
 """Stores all big variables."""
 import os
 
-os.environ['OPENAI_API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = ''
 
-movie_list: list[str] = ["The Shawshank Redemption", "The Godfather", "Titanic", "Star Wars: Episode IV - A New Hope", "Jurassic Park", "Avatar", 
-             "Harry Potter", "Forrest Gump", "Inception", "The Matrix", "Pulp Fiction", 
-             "The Lord of the Rings: The Fellowship of the Ring", "Fight Club", "The Dark Knight", "Schindler's List", "Toy Story", "Saving Private Ryan",
-             "Amélie", "The Lion King", "Gladiator", "Parasite", "La La Land", "The Silence of the Lambs", "Interstellar", "Spirited Away"]
+movie_list: list[str] = ["The Shawshank Redemption", 
+                         "The Godfather", 
+                         "Titanic", 
+                         "Star Wars", 
+                         "Jurassic Park", 
+                         "Avatar", 
+                         "Harry Potter", 
+                         "Forrest Gump", 
+                         "Inception", 
+                         "The Matrix", 
+                         "Pulp Fiction", 
+                         "The Lord of the Rings", 
+                         "Fight Club", 
+                         "The Dark Knight", 
+                         "Schindler's List",
+                        "Toy Story", 
+                        "Saving Private Ryan",
+                        "Amélie", 
+                        "The Lion King", 
+                        "Gladiator", 
+                        "Parasite", 
+                        "La La Land", 
+                        "The Silence of the Lambs", 
+                        "Interstellar", 
+                        "Spirited Away",
+                        "Avengers",
+                        "Frozen",
+                        "The Wolf of Wall Street",
+                        "Mad Max: Fury Road"]
 
 system_content_select_character: str = "You are a movie expert and you need to randomly select a character from a given movie."
 
