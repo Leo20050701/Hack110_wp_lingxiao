@@ -10,6 +10,8 @@ movie_list: list[str] = ["The Shawshank Redemption", "The Godfather", "Titanic",
 
 system_content_select_character: str = "You are a movie expert and you need to randomly select a character from a given movie."
 
+system_content_clue: str = "I am playing a game like 20Q but there is only 3 clues and it is about guessing movie characters. The clue ordered from most difficult to relatively easy. You are the person who give out the clue. I will provide you the name of the movie and the chosen character, you need to give me the clue followed by instruction."
+
 def ask_for_character(movie: str) -> str:
     ask_for_character: str = f"Please randomly select A character in the movie {movie}. Please return to me ONLY the name without any other content and information."
     return ask_for_character
