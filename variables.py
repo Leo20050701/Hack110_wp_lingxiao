@@ -13,3 +13,8 @@ system_content_select_character: str = "You are a movie expert and you need to r
 def ask_for_character(movie: str) -> str:
     ask_for_character: str = f"Please randomly select A character in the movie {movie}. Please return to me ONLY the name without any other content and information."
     return ask_for_character
+
+def first_clue(ask_for_character: str, movie: str) -> str:
+    first_clue: str = f"This is the first clue which is considered the most difficult one. Please give me the distinct physical features of the {ask_for_character} in the movie {movie}. 
+                        This clue should be only in one concise sentence."
+    return first_clue
